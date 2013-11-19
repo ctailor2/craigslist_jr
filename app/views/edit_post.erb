@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Edit Post</h1>
+
+  <form action="/update/<%=@post.id%>" method="post">
+  <table border="1">
+    <tr>
+        <td>Title:</td>
+        <td><input type="text" name="title" value="<%= @post.title %>"></td>
+    </tr>
+    <tr>
+        <td>Description:</td>
+        <td><input type="text" name="description" value="<%= @post.description %>"></td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td><input type="number" name="price" value="<%= @post.price %>"></td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td><input type="text" name="email" value="<%= @post.email %>"></td>
+    </tr>
+    <tr>
+        <td>Category:</td>
+        <td>
+          <select name="category_id">
+            <% @categories.each do |category| %>
+              <option label="<%= category.name %>" value="<%= category.id %>">
+            <% end %>
+          </select>
+        </td>
+    </tr>
+    </table>
+    <input type="submit" ></td>
+    </form>
+    <br>
+    <p>Edit url: /categories/<%= @post.category_id %>/<%= @post.id %>/edit/<%= @post.edit_url %></p>
+</div>
